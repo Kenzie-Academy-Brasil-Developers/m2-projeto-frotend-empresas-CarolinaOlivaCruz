@@ -1,0 +1,14 @@
+form {
+    position: absolute;
+    margin: 100px;
+    width: 506px;
+
+}
+
+.container-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(230, 245, 245);
+}
