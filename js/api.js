@@ -18,3 +18,18 @@ export async function getCompanies() {
         console.log(err)
     }
 }
+
+
+export async function getSectors(){
+    try {
+        const response = await fetch(`${baseUrl}sectors`, {
+            method: 'GET',
+            headers: headers
+        })
+        const responseJson = response.json()
+        return responseJson
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

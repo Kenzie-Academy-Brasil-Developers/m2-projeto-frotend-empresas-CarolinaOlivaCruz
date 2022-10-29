@@ -21,13 +21,23 @@ main section {
     background-color: blue;
 }
 
-.title-home h2 {
+.select-title {
+    display: flex;
+    justify-content: flex-end;
+    gap: 170px;
+}
+
+.select-title h2 {
     padding: 15px;
 }
 
 .container-list {
     height: 90%;
     overflow: auto;
+}
+
+.list-sectors {
+    position: absolute;
 }
 
 .list-companies {
