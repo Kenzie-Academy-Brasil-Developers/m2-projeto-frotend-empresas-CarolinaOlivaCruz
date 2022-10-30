@@ -9,7 +9,7 @@ const arrayCompanies = await getCompanies()
 async function renderList(array) {
     const ul = document.querySelector('.list-companies')
     ul.innerHTML = ''
-    
+
     array.forEach(element => {
         const li = document.createElement('li')
 
@@ -33,7 +33,12 @@ async function renderList(array) {
 async function containerSectors() {
     const ul = document.querySelector('.list-sectors')
     const arraySectors = await getSectors()
-
+    const buttonAll = document.querySelector('.buttonAll')
+    buttonAll.addEventListener('click', (e)=> {
+        e.preventDefault()
+        renderList(arrayCompanies)
+    })
+    
     arraySectors.forEach(element => {
         const li = document.createElement('li')
         const button = document.createElement('button')
@@ -48,6 +53,7 @@ async function containerSectors() {
     })
 }
 
+
 async function filter(button) {
     const arrayCompanies = await getCompanies()
     const filter = arrayCompanies.filter(element => element.sectors.description == button)
@@ -55,7 +61,9 @@ async function filter(button) {
     renderList(filter)
 }
 
-renderList(arrayCompanies)
+
+
 containerSectors()
+renderList(arrayCompanies)
 buttonLogin('./pages/login/index.html')
 buttonRegister('./pages/register/index.html')
