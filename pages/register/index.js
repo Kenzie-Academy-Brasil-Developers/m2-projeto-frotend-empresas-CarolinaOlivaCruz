@@ -24,8 +24,6 @@ function register() {
             kind_of_work: null,
             department_uuid: null
         }
-
-        console.log(dataRegister);
         await postRegister(dataRegister)
     })
 }

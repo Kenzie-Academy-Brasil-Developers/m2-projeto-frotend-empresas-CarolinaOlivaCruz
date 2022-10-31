@@ -79,3 +79,22 @@ export async function postRegister(data) {
         console.log(err);
     }
 }
+
+export async function getProfile() {
+    const response = await fetch(`${baseUrl}users/profile`, {
+        method: 'GET',
+        headers: headers
+    })
+    const responseJson = await response.json()
+    return responseJson
+}
+
+export async function getCoworkers() {
+    const response = await fetch(`${baseUrl}users/departments/coworkers`, {
+        method: 'GET',
+        headers: headers
+    })
+
+    const responseJson = await response.json()
+    return responseJson
+}
