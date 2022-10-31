@@ -34,11 +34,15 @@ async function containerSectors() {
     const ul = document.querySelector('.list-sectors')
     const arraySectors = await getSectors()
     const buttonAll = document.querySelector('.buttonAll')
-    buttonAll.addEventListener('click', (e)=> {
+    buttonAll.addEventListener('click', (e) => {
         e.preventDefault()
+
+        const h2 = document.querySelector('.home-select')
+        h2.innerText = buttonAll.innerText
+
         renderList(arrayCompanies)
     })
-    
+
     arraySectors.forEach(element => {
         const li = document.createElement('li')
         const button = document.createElement('button')
@@ -46,8 +50,13 @@ async function containerSectors() {
         button.innerText = element.description
         button.addEventListener('click', async (e) => {
             e.preventDefault()
+            console.log(button);
+            const h2 = document.querySelector('.home-select')
+            h2.innerText = button.innerText
+
             await filter(element.description)
         })
+
         li.appendChild(button)
         ul.appendChild(li)
     })
