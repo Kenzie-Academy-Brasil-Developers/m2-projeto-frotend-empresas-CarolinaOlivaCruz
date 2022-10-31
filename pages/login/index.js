@@ -4,7 +4,7 @@ import { postLogin } from "../../js/api.js"
 
 
 function login() {
- 
+
   const inputEmail = document.getElementById('email')
   const inputPassaword = document.getElementById('password')
   const buttonSubmit = document.getElementById('loginSubmit')
@@ -17,16 +17,18 @@ function login() {
       email: inputEmail.value,
       password: inputPassaword.value
     }
-    console.log(data)
 
-    const returnApi = await postLogin(data)
-    if (returnApi != undefined) {
-      console.log(returnApi);
-      window.location.assign('../../pages/user-page/index.html')
-    }
-     else {
-      inputs[0].value = ''
-      inputs[1].value = ''
+    if (data.email != '' && data.password != '') {
+
+      const returnApi = await postLogin(data)
+      if (returnApi != undefined) {
+        console.log('Inválido');
+      }
+      else {
+        inputEmail.value = ''
+        inputPassaword.value = ''
+        window.location.assign('../../pages/user-page/index.html')
+      }
     }
   })
 }

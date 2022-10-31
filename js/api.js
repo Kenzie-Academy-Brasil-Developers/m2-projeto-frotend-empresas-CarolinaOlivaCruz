@@ -41,18 +41,16 @@ export async function postLogin(data) {
     console.log(data);
     try {
         const response = await fetch(`${baseUrl}auth/login`, {
-            method: 'Post',
+            method: 'POST',
             headers: headers,
             body: JSON.stringify(data)
         })
 
-        const responseJson = response.json()
+        const responseJson = await response.json()
         localStorage.setItem('token', responseJson.token)
 
         if (responseJson.token) {
             console.log('deu certo')
-        } else {
-            throw new err
         }
     }
     catch (err) {
@@ -63,7 +61,7 @@ export async function postLogin(data) {
 
 
 export async function postRegister(data) {
-console.log(data);
+    console.log(data);
     try {
         const response = await fetch(`${baseUrl}auth/register`, {
             method: 'POST',
@@ -72,8 +70,8 @@ console.log(data);
         })
 
         const responseJson = await response.json()
-        
-        if (response.status < 300){
+
+        if (response.status < 300) {
             window.location.assign('../../pages/login/index.html')
         }
     }
