@@ -1,6 +1,5 @@
 import { getCompanies } from "../../js/api.js"
 import { getSectors } from "../../js/api.js"
-
 import { buttonLogin } from "../../js/button.js"
 import { buttonRegister } from "../../js/button.js"
 
@@ -31,6 +30,8 @@ async function renderList(array) {
 
 
 async function containerSectors() {
+
+    
     const ul = document.querySelector('.list-sectors')
     const arraySectors = await getSectors()
     const buttonAll = document.querySelector('.buttonAll')

@@ -1,11 +1,12 @@
 import { getProfile } from "../../js/api.js"
 import { buttonLogout } from "../../js/button.js"
 import { getCoworkers } from "../../js/api.js"
+import { openEditProfile } from "../../js/edit-profile.js"
+
 
 async function renderUser() {
     const profile = await getProfile()
-    console.log(profile);
-
+    
     const div = document.querySelector('.container-profile')
 
     const h3 = document.createElement('h3')
@@ -25,22 +26,19 @@ async function renderUser() {
     divData.append(pEmail, pLevel, plocal)
     div.append(h3, divData)
 }
-renderUser()
 
 
 async function renderDashboard() {
     const arrayDepart = await getCoworkers()
-    console.log(arrayDepart[0]);
-
+    
     const profile = await getProfile()
-    console.log(profile);
-
+    
     const section = document.querySelector('.container-dashboard')
 
-if(profile.department_uuid == null){
+    if(profile.department_uuid == null){
     const h3 = document.createElement('h3')
     h3.innerText = 'Você ainda não foi contratado'
-
+    
     section.appendChild(h3)
 }
 else {
@@ -49,17 +47,16 @@ else {
     h3.innerText = `Company Name - ${arrayDepart[0].name}`
     const div2 = document.createElement('div')
     const ul = document.createElement('ul')
-
+    
     arrayDepart[0].users.forEach(element => {
-        console.log(element);
-
+      
         const li = document.createElement('li')
         const pName = document.createElement('p')
         const strong = document.createElement('strong')
         strong.innerText = element.username
         const pLevel = document.createElement('p')
         pLevel.innerText = element.professional_level
-
+        
         pName.appendChild(strong)
         li.append(pName, pLevel)
         ul.appendChild(li)
@@ -70,7 +67,15 @@ else {
     section.append(div1, div2)
 }
 }
+
+
+
+
+
+
+
+
+openEditProfile()
+renderUser()
 renderDashboard()
-
-
 buttonLogout()

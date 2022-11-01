@@ -98,3 +98,22 @@ export async function getCoworkers() {
     const responseJson = await response.json()
     return responseJson
 }
+
+
+export async function patchUser(newData) {
+    try {
+        const response = await fetch(`${baseUrl}users`, {
+            method: 'PATCH',
+            headers: headers,
+            body: JSON.stringify(newData)
+        })
+
+        const responseJson = await response.json()
+        
+        return responseJson
+    }
+    catch (err) {
+        console.log(err);
+    }
+
+}
