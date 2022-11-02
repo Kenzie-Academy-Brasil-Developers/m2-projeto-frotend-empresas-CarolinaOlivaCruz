@@ -10,7 +10,7 @@ function register() {
     const inputPassaword = formRegister.children[3]
     const inputEmail = formRegister.children[2]
     const inputLevel = formRegister.children[4]
-
+    console.log(inputLevel);
     const buttonRegister = formRegister.children[5]
 
     buttonRegister.addEventListener('click', async (e) => {
