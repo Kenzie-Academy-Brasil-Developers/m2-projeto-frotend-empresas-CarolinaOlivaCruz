@@ -32,11 +32,11 @@ export function buttonReturn(url) {
     })
 }
 
-export function buttonLogout() {
+export function buttonLogout(url) {
     const button = document.querySelector('.button-logout')
     button.addEventListener('click', (e) => {
         e.preventDefault()
         localStorage.clear()
-        window.location.replace('../../index.html')
+        window.location.replace(url)
     })
 }

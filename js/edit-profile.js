@@ -10,6 +10,7 @@ async function editProfile() {
 
     const body = document.querySelector('body')
     const section = document.createElement('section')
+    
     const div1 = document.createElement('div')
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'

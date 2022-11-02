@@ -115,7 +115,7 @@ export async function patchUser(newData) {
         })
 
         const responseJson = await response.json()
-        
+
         return responseJson
     }
     catch (err) {
@@ -124,25 +124,25 @@ export async function patchUser(newData) {
 }
 
 
-export async function getCompanieDepartments(id){
-    
-    try{
+export async function getCompanieDepartments(id) {
+
+    try {
         const response = await fetch(`${baseUrl}departments/${id}`, {
-            method:'GET',
+            method: 'GET',
             headers: headersAdmin
         })
-    
+
         const responseJson = await response.json()
-        
+
         return responseJson
     }
-    catch(err){
+    catch (err) {
         console.log(err)
     }
 }
 
 
-export async function getUsers(){
+export async function getUsers() {
     const response = await fetch(`${baseUrl}users`, {
         method: 'GET',
         headers: headersAdmin
@@ -150,4 +150,38 @@ export async function getUsers(){
 
     const responseJson = response.json()
     return responseJson
+}
+
+
+export async function postDepartments() {
+    try {
+        const response = await fetch(`${baseUrl}departments`, {
+            method: 'POST',
+            headers: headersAdmin,
+            body: JSON.stringify()
+        })
+
+        const responseJson = response.json()
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+export async function getDepartments() {
+
+    try {
+        const response = await fetch(`${baseUrl}departments`, {
+            method: 'GET',
+            headers: headersAdmin
+        })
+
+        const responseJson = await response.json()
+
+        return responseJson
+    }
+    catch (err) {
+        console.log(err)
+    }
 }

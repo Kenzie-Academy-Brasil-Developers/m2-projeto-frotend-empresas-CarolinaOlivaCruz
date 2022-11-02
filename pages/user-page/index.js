@@ -79,4 +79,4 @@ async function renderDashboard() {
 openEditProfile()
 renderUser()
 renderDashboard()
-buttonLogout()
+buttonLogout('../../index.html')
