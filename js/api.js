@@ -125,7 +125,7 @@ export async function patchUser(newData) {
 
 
 export async function getCompanieDepartments(id){
-    console.log(id);
+    
     try{
         const response = await fetch(`${baseUrl}departments/${id}`, {
             method:'GET',
@@ -139,4 +139,15 @@ export async function getCompanieDepartments(id){
     catch(err){
         console.log(err)
     }
+}
+
+
+export async function getUsers(){
+    const response = await fetch(`${baseUrl}users`, {
+        method: 'GET',
+        headers: headersAdmin
+    })
+
+    const responseJson = response.json()
+    return responseJson
 }
