@@ -185,3 +185,32 @@ export async function getDepartments() {
         console.log(err)
     }
 }
+
+
+export async function getOutOfWork() {
+    const response = await fetch(`${baseUrl}admin/out_of_work`, {
+        method: 'GET',
+        headers: headersAdmin
+    })
+
+    const responseJson = response.json()
+    return responseJson
+}
+
+
+export async function patchHire(data) {
+    try {
+        const response = await fetch(`${baseUrl}departments/hire/`, {
+            method: 'PATCH',
+            headers: headersAdmin,
+            body: JSON.stringify(data)
+        })
+        console.log(data)
+
+        const responseJson = response.json()
+        return responseJson
+    }
+    catch (err) {
+        console.log(err);
+    }
+}

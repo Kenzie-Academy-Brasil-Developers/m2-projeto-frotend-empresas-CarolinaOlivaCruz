@@ -138,6 +138,6 @@ async function renderUsers() {
     })
 }
 
-// renderUsers()
+//renderUsers()
 listDepartment()
 buttonLogout('../../index.html')
