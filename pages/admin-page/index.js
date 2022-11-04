@@ -3,7 +3,9 @@ import { getCompanieDepartments } from "../../js/api.js"
 import { getUsers } from "../../js/api.js"
 import { buttonLogout } from "../../js/button.js"
 import { getDepartments } from "../../js/api.js"
-import { viewDepartment } from "../../js/create-departmente.js"
+import { viewDepartment } from "../../js/view-departmente.js"
+import { editDepartment } from "../../js/edit-department.js"
+import { deleteConfirm } from "../../js/deleteDepartment.js"
 
 
 async function selectCompanie() {
@@ -67,15 +69,31 @@ function renderDepartment(array) {
         
         const buttonPen = document.createElement('button')
         buttonPen.className = 'button-pen'
-        buttonPen.id = 'buttonPen'
+        buttonPen.id = department.uuid
         const imgPen = document.createElement('img')
         imgPen.src = '../../src/admin-page/icon-pen.svg'
+        buttonPen.addEventListener('click',async (e) => {
+            e.preventDefault()
+            if(buttonPen.id == department.uuid){
+               await editDepartment(department.uuid, department.description)
+            }
+        })
+
 
         const buttonDelete = document.createElement('button')
         buttonDelete.className = 'button-delete'
-        buttonDelete.id = 'buttonDelete'
+        buttonDelete.id = department.uuid
         const imgDelete = document.createElement('img')
         imgDelete.src = '../../src/admin-page/icon-delete.svg'
+        imgDelete.alt = 'lixeira departamento'
+        buttonDelete.addEventListener('click', (e) => {
+            e.preventDefault()
+            if(buttonDelete.id == department.uuid){
+                const question = `Realmente deseja deletar o departamento ${department.description} e demitir seus funcionários?`
+               deleteConfirm(question, department.uuid, imgDelete.alt)
+            }
+        })
+
 
         div1.append(h4, pDescription, pName)
         buttonView.appendChild(imgView)

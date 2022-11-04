@@ -1,7 +1,7 @@
 import { getUsers } from "./api.js"
 import { getOutOfWork } from "./api.js"
 import { patchHire } from "./api.js"
-
+import { patchRemoveUser } from "./api.js"
 
 export async function viewDepartment(department) {
 
@@ -41,7 +41,7 @@ export async function viewDepartment(department) {
     buttonHire.innerText = 'Contratar'
     buttonHire.addEventListener('click', async (e) => {
         e.preventDefault()
-       
+
         let data = {
             user_uuid: select.value,
             department_uuid: department.uuid
@@ -81,8 +81,8 @@ export async function viewDepartment(department) {
 
 function listUserDepart(department, arrayUserDepart) {
     const ul = document.createElement('ul')
-    ul.innerHTML = ''
     arrayUserDepart.forEach(user => {
+
         const li = document.createElement('li')
         const divUser = document.createElement('div')
         const h4 = document.createElement('h4')
@@ -94,6 +94,15 @@ function listUserDepart(department, arrayUserDepart) {
         pCompanie.innerText = department
 
         const buttonRemove = document.createElement('button')
+        buttonRemove.innerText = 'Desligar'
+        buttonRemove.id = user.uuid
+        buttonRemove.addEventListener('click', (e) => {
+            e.preventDefault()
+            if (buttonRemove.id == user.uuid) {
+                patchRemoveUser(user.uuid)
+            }
+        })
+
         divUser.append(h4, pLevel, pCompanie)
         li.append(divUser, buttonRemove)
 

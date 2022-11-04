@@ -1,9 +1,11 @@
 const baseUrl = 'http://localhost:6278/'
+
 const token = localStorage.getItem('token')
 const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`
 }
+
 const tokenAdmin = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjczOTBhZGYtMzhhNy00Y2VlLTg5ZWQtYzJiYWVmMzY4YmZmIiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTY2NjkxNzQyMywiZXhwIjoxNjY3NzgxNDIzLCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.1VEwu65jMWZXistVAMZrjTjkJ1KzsADjj08j-VPDlOA'
 const headersAdmin = {
     'Content-Type': 'application/json',
@@ -209,6 +211,52 @@ export async function patchHire(data) {
 
         const responseJson = response.json()
         return responseJson
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+export async function patchRemoveUser(idUser) {
+    try {
+        const response = await fetch(`${baseUrl}departments/dismiss/${idUser}`, {
+            method: 'PATCH',
+            headers: headersAdmin,
+            body: JSON.stringify()
+        })
+        const responseJson = response.json
+        return responseJson
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
+export async function patchDepartment(idDepartment, newDescription) {
+    try {
+        const response = await fetch(`${baseUrl}departments/${idDepartment}`, {
+            method: 'PATCH',
+            headers: headersAdmin,
+            body: JSON.stringify(newDescription)
+        })
+        const responseJson = response.json
+        return responseJson
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
+export async function deleteDepartment(idDepartment) {
+    try {
+        const response = await fetch(`${baseUrl}departments/${idDepartment}`, {
+            method: 'DELETE',
+            headers: headersAdmin
+        })
+        return response
     }
     catch (err) {
         console.log(err);
