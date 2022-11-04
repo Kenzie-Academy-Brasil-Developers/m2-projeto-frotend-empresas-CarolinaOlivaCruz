@@ -6,11 +6,11 @@ import { getDepartments } from "../../js/api.js"
 import { viewDepartment } from "../../js/view-departmente.js"
 import { editDepartment } from "../../js/edit-department.js"
 import { deleteConfirm } from "../../js/deleteDepartment.js"
+import { buttonCreate } from "../../js/create-department.js"
+import { editUser } from "../../js/edit-user.js"
 
 
-async function selectCompanie() {
-
-    const buttonSelect = document.querySelector('.select-companie')
+async function selectCompanie(buttonSelect) {
 
     const arrayCompanies = await getCompanies()
 
@@ -18,17 +18,17 @@ async function selectCompanie() {
         const buttonOption = document.createElement('option')
         buttonOption.value = objCompanie.uuid
         buttonOption.innerText = objCompanie.name
-
+        
         buttonSelect.appendChild(buttonOption)
-    });
+    })
 }
 
 
 async function listDepartment() {
-    await selectCompanie()
-
     const select = document.querySelector('.select-companie')
     const ulDepartment = document.querySelector('.list-department')
+    
+    await selectCompanie(select)
 
     select.addEventListener('change', async function () {
         ulDepartment.innerHTML = ''
@@ -139,11 +139,31 @@ async function renderUsers() {
 
             const div2 = document.createElement('div')
             const buttonPen = document.createElement('button')
+            buttonPen.id = user.uuid
             const imgPen = document.createElement('img')
             imgPen.src = '../../src/admin-page/icon-pen.svg'
+            buttonPen.addEventListener('click',(e) => {
+                e.preventDefault()
+                if(buttonPen.id == user.uuid){
+                  editUser(user.uuid)
+                }
+            })
+
+
+            
             const buttonDelete = document.createElement('button')
             const imgDelete = document.createElement('img')
+            buttonDelete.id = user.uuid
             imgDelete.src = '../../src/admin-page/icon-delete.svg'
+            imgDelete.alt = 'lixeira funcionário'
+            buttonDelete.addEventListener('click', (e) => {
+                e.preventDefault()
+                if(buttonDelete.id == user.uuid){
+                    const question = `Realmente deseja remover o usuário ${user.username}?`
+                   deleteConfirm(question, user.uuid, imgDelete.alt)
+                }
+            })
+
 
             div1.append(h4, pDescription, pName)
             buttonPen.appendChild(imgPen)
@@ -156,6 +176,7 @@ async function renderUsers() {
     })
 }
 
-//renderUsers()
+renderUsers()
 listDepartment()
 buttonLogout('../../index.html')
+buttonCreate()

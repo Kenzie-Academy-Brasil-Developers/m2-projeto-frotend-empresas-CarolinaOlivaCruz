@@ -1,6 +1,6 @@
 
 import { getProfile } from "./api.js"
-import { patchUser } from "./api.js"
+import { patchProfile } from "./api.js"
 
 const objProfile = await getProfile()
 console.log(objProfile.username);
@@ -52,7 +52,7 @@ async function editProfile() {
         }
 
         if (newData.email != objProfile.email && newData.password != '') {
-            await patchUser(newData)
+            await patchProfile(newData)
             await getProfile()
             setTimeout(() => {
                 window.location.replace('./index.html')

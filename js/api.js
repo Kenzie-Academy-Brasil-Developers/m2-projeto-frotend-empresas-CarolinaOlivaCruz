@@ -108,7 +108,7 @@ export async function getCoworkers() {
 }
 
 
-export async function patchUser(newData) {
+export async function patchProfile(newData) {
     try {
         const response = await fetch(`${baseUrl}users`, {
             method: 'PATCH',
@@ -155,15 +155,16 @@ export async function getUsers() {
 }
 
 
-export async function postDepartments() {
+export async function postDepartments(data) {
     try {
         const response = await fetch(`${baseUrl}departments`, {
             method: 'POST',
             headers: headersAdmin,
-            body: JSON.stringify()
+            body: JSON.stringify(data)
         })
 
         const responseJson = response.json()
+        return responseJson
     }
     catch (err) {
         console.log(err);
@@ -257,6 +258,37 @@ export async function deleteDepartment(idDepartment) {
             headers: headersAdmin
         })
         return response
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+export async function deleteUser(idUser) {
+    try {
+        const response = await fetch(`${baseUrl}admin/delete_user/${idUser}`, {
+            method: 'DELETE',
+            headers: headersAdmin
+        })
+        return response
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+export async function patchUser(newData, idUser) {
+    
+    try {
+        const response = await fetch(`${baseUrl}admin/update_user/${idUser}`, {
+            method: 'PATCH',
+            headers: headersAdmin,
+            body: JSON.stringify(newData)
+        })
+
+        const responseJson = response.json()
+        return responseJson
     }
     catch (err) {
         console.log(err);

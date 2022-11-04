@@ -1,6 +1,8 @@
 import { deleteDepartment } from "./api.js"
+import { deleteUser } from "./api.js"
 
-export function deleteConfirm(question, idDepartment, imgAlt) {
+export function deleteConfirm(question, id, imgAlt) {
+    console.log(id);
     const body = document.querySelector('body')
     const section = document.createElement('section')
 
@@ -16,13 +18,13 @@ export function deleteConfirm(question, idDepartment, imgAlt) {
 
     const buttonDelete = document.createElement('button')
     buttonDelete.innerText = 'Confirmar'
-    buttonDelete.addEventListener('click', (e) => {
+    buttonDelete.addEventListener('click', async (e) => {
         e.preventDefault()
         if (imgAlt == 'lixeira departamento') {
-            deleteDepartment(idDepartment)
+          await  deleteDepartment(id)
         }
         else if (imgAlt == 'lixeira funcionário') {
-            console.log('oi');
+           await deleteUser(id)
         }
     })
 
