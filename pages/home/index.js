@@ -1,7 +1,8 @@
 import { getCompanies } from "../../js/api.js"
 import { getSectors } from "../../js/api.js"
 import { buttonLoginDesk } from "../../js/button.js"
-import { buttonRegisterDesk } from "../../js/button.js";
+import { buttonRegisterDesk } from "../../js/button.js"
+import { navButton } from "../../js/button.js"
 
 const arrayCompanies = await getCompanies()
 
@@ -78,6 +79,7 @@ async function filter(select) {
 }
 
 containerSectors()
+navButton('index.html', './pages/login/index.html', './pages/register/index.html')
 buttonRegisterDesk('./pages/register/index.html')
 buttonLoginDesk('./pages/login/index.html')
 renderList(arrayCompanies)
