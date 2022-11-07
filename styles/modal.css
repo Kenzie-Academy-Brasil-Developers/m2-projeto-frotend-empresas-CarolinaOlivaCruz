@@ -6,6 +6,10 @@
     background-color: rgba(0, 0, 0, 0.082);
 }
 
+.close {
+    display: none;
+}
+
 .container-modal {
     width: 506px;
     height: 421px;

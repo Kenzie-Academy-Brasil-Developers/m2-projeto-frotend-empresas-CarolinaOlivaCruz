@@ -122,6 +122,7 @@ export async function renderUsers() {
             const li = document.createElement('li')
 
             const div1 = document.createElement('div')
+            div1.className = 'div-data-user'
             const h4 = document.createElement('h4')
             h4.innerText = user.username
 
@@ -140,6 +141,7 @@ export async function renderUsers() {
             })
 
             const div2 = document.createElement('div')
+            div2.className = 'buttons-user'
             const buttonPen = document.createElement('button')
             buttonPen.id = user.uuid
             const imgPen = document.createElement('img')

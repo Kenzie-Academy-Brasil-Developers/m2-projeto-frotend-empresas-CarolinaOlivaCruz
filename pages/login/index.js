@@ -23,14 +23,16 @@ function login() {
     if (data.email != '' && data.password != '') {
 
       const returnApi = await postLogin(data)
+
       if (returnApi != undefined) {
-      
+      const pError = document.querySelector('.p-error')
+      pError.innerHTML = 'Email ou senha inválidos'
         console.log('Inválido');
       }
       else {
+        const typeUser = await getTypeUser()
         inputEmail.value = ''
         inputPassaword.value = ''
-        const typeUser = await getTypeUser()
         if (typeUser.is_admin == false) {
           window.location.replace('../../pages/user-page/index.html')
         }

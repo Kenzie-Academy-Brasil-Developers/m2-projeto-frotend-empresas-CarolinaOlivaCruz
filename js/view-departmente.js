@@ -18,7 +18,10 @@ export async function viewDepartment(department) {
     div1.className = 'div-button'
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
-    buttonClose.addEventListener('click', () => window.location.replace('./index.html'))
+    buttonClose.addEventListener('click', () => {
+        section.className = 'close'
+        section.innerHTML = ''
+    })
 
     const h3 = document.createElement('h3')
     h3.innerText = department.name

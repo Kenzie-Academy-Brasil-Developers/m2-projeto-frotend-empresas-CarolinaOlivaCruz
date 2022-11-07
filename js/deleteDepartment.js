@@ -14,7 +14,10 @@ export function deleteConfirm(question, id, imgAlt) {
   div1.className = 'div-button'
   const buttonClose = document.createElement('button')
   buttonClose.innerText = 'X'
-  buttonClose.addEventListener('click', () => window.location.replace('./index.html'))
+  buttonClose.addEventListener('click', () => {
+    section.className = 'close'
+    section.innerHTML = ''
+})
 
   const div2 = document.createElement('div')
 

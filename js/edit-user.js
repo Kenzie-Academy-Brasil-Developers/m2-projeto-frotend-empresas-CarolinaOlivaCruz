@@ -5,11 +5,19 @@ export function editUser(idUser) {
 
     const body = document.querySelector('body')
     const section = document.createElement('section')
+    section.className = 'section-modal'
+
+    const div = document.createElement('div')
+    div.className = 'container-modal'
 
     const div1 = document.createElement('div')
+    div1.className = 'div-button'
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
-    buttonClose.addEventListener('click', () => section.innerHTML = '')
+    buttonClose.addEventListener('click', () => {
+        section.className = 'close'
+        section.innerHTML = ''
+    })
 
     const div2 = document.createElement('div')
 
@@ -78,6 +86,7 @@ export function editUser(idUser) {
     select1.append(option1Work, option2Work, option3Work, option4Work)
     select2.append(option1, option2, option3, option4, option5)
     div2.append(select1, select2)
-    section.append(div1, div2, buttonEdit)
+    div.append(div1, div2, buttonEdit)
+    section.append(div)
     body.appendChild(section)
 }

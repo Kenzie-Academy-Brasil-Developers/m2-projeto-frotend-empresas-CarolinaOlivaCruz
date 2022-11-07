@@ -11,7 +11,7 @@ async function editProfile() {
     const body = document.querySelector('body')
     const section = document.createElement('section')
     section.className = 'section-modal'
-    
+
     const div = document.createElement('div')
     div.className = 'container-modal'
 
@@ -19,7 +19,10 @@ async function editProfile() {
     div1.className = 'div-button'
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
-    buttonClose.addEventListener('click', () => window.location.replace('./index.html'))
+    buttonClose.addEventListener('click', () => {
+        section.className = 'close'
+        section.innerHTML = ''
+    })
 
     const div2 = document.createElement('div')
     div2.className = 'container-edit-profile'
@@ -49,8 +52,8 @@ async function editProfile() {
     const button = document.createElement('button')
     button.innerText = 'Editar perfil'
     button.addEventListener('click', async () => {
- 
-        
+
+
         const newData = {
             username: inputName.value,
             password: inputPassword.value,
@@ -67,7 +70,7 @@ async function editProfile() {
         else {
             pErro.innerText = 'Email ou senha inválidos'
         }
-            
+
     })
 
     div1.appendChild(buttonClose)
