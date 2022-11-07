@@ -1,14 +1,73 @@
-form {
+body {
     position: absolute;
-    margin: 100px;
-    width: 506px;
+    background-image: url(../../src/home/img-pag-register.svg);
+}
 
+main {
+    position: relative;
+    margin-top: 100px;
+    background-color: var(--gray350);
 }
 
 .container-form {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: rgb(230, 245, 245);
+    color: var(--gray100);
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.container-form h2 {
+    font-weight: bold;
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+.p-description {
+    margin: 10px 0;
+}
+
+.container-form input {
+    font-size: 18px;
+    width: 97%;
+    height: 45px;
+    margin: 8px 0;
+    padding: 5px;
+    border: 1px solid var(--gray200);
+}
+
+
+.container-form select {
+    font-size: 18px;
+    width: 100%;
+    height: 45px;
+    margin: 8px 0;
+    padding: 5px;
+    color: var(--gray250);
+    border: 1px solid var(--gray200);
+}
+
+.container-form button {
+    width: 100%;
+    height: 52px;
+    margin: 8px 0;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.p-alternative {
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+
+    body {
+        width: 100%;
+    }
+
+    main {
+        width: 80%;
+        max-width: 506px;
+        margin: 110px 30%;
+    }
 }

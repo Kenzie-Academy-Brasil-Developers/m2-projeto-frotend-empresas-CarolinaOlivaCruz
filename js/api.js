@@ -7,7 +7,7 @@ const headers = {
 }
 
 const tokenAdmin = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjczOTBhZGYtMzhhNy00Y2VlLTg5ZWQtYzJiYWVmMzY4YmZmIiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTY2NjkxNzQyMywiZXhwIjoxNjY3NzgxNDIzLCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.1VEwu65jMWZXistVAMZrjTjkJ1KzsADjj08j-VPDlOA'
-const headersAdmin = {
+const headersa = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${tokenAdmin}`
 }
@@ -58,12 +58,27 @@ export async function postLogin(data) {
         localStorage.setItem('token', responseJson.token)
 
         if (responseJson.token) {
-            console.log('deu certo')
+            console.log(responseJson.token);
         }
     }
     catch (err) {
         console.log(err)
         console.log('deu ruim');
+    }
+}
+
+
+export async function getTypeUser() {
+    try {
+        const response = await fetch(`${baseUrl}auth/validate_user`, {
+            method: 'GET',
+            headers: headers
+        })
+        const responseJson = await response.json()
+        return responseJson
+    }
+    catch (err) {
+        console.log(err);
     }
 }
 
@@ -78,10 +93,10 @@ export async function postRegister(data) {
         })
 
         const responseJson = await response.json()
-
         if (response.status < 300) {
             window.location.assign('../../pages/login/index.html')
         }
+        return responseJson
     }
     catch (err) {
         console.log(err);
@@ -131,7 +146,7 @@ export async function getCompanieDepartments(id) {
     try {
         const response = await fetch(`${baseUrl}departments/${id}`, {
             method: 'GET',
-            headers: headersAdmin
+            headers: headers
         })
 
         const responseJson = await response.json()
@@ -147,7 +162,7 @@ export async function getCompanieDepartments(id) {
 export async function getUsers() {
     const response = await fetch(`${baseUrl}users`, {
         method: 'GET',
-        headers: headersAdmin
+        headers: headers
     })
 
     const responseJson = response.json()
@@ -159,7 +174,7 @@ export async function postDepartments(data) {
     try {
         const response = await fetch(`${baseUrl}departments`, {
             method: 'POST',
-            headers: headersAdmin,
+            headers: headers,
             body: JSON.stringify(data)
         })
 
@@ -177,7 +192,7 @@ export async function getDepartments() {
     try {
         const response = await fetch(`${baseUrl}departments`, {
             method: 'GET',
-            headers: headersAdmin
+            headers: headers
         })
 
         const responseJson = await response.json()
@@ -193,7 +208,7 @@ export async function getDepartments() {
 export async function getOutOfWork() {
     const response = await fetch(`${baseUrl}admin/out_of_work`, {
         method: 'GET',
-        headers: headersAdmin
+        headers: headers
     })
 
     const responseJson = response.json()
@@ -205,7 +220,7 @@ export async function patchHire(data) {
     try {
         const response = await fetch(`${baseUrl}departments/hire/`, {
             method: 'PATCH',
-            headers: headersAdmin,
+            headers: headers,
             body: JSON.stringify(data)
         })
         console.log(data)
@@ -223,7 +238,7 @@ export async function patchRemoveUser(idUser) {
     try {
         const response = await fetch(`${baseUrl}departments/dismiss/${idUser}`, {
             method: 'PATCH',
-            headers: headersAdmin,
+            headers: headers,
             body: JSON.stringify()
         })
         const responseJson = response.json
@@ -239,7 +254,7 @@ export async function patchDepartment(idDepartment, newDescription) {
     try {
         const response = await fetch(`${baseUrl}departments/${idDepartment}`, {
             method: 'PATCH',
-            headers: headersAdmin,
+            headers: headers,
             body: JSON.stringify(newDescription)
         })
         const responseJson = response.json
@@ -255,9 +270,10 @@ export async function deleteDepartment(idDepartment) {
     try {
         const response = await fetch(`${baseUrl}departments/${idDepartment}`, {
             method: 'DELETE',
-            headers: headersAdmin
+            headers: headers
         })
         return response
+
     }
     catch (err) {
         console.log(err);
@@ -268,7 +284,7 @@ export async function deleteUser(idUser) {
     try {
         const response = await fetch(`${baseUrl}admin/delete_user/${idUser}`, {
             method: 'DELETE',
-            headers: headersAdmin
+            headers: headers
         })
         return response
     }
@@ -279,11 +295,11 @@ export async function deleteUser(idUser) {
 
 
 export async function patchUser(newData, idUser) {
-    
+
     try {
         const response = await fetch(`${baseUrl}admin/update_user/${idUser}`, {
             method: 'PATCH',
-            headers: headersAdmin,
+            headers: headers,
             body: JSON.stringify(newData)
         })
 

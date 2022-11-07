@@ -13,8 +13,9 @@ async function renderUser() {
     h3.innerText = profile.username
 
     const divData = document.createElement('div')
+    divData.className = 'data-user'
     const pEmail = document.createElement('p')
-    pEmail.innerText = profile.email
+    pEmail.innerText = `Email: ${profile.email}` 
     const pLevel = document.createElement('p')
     pLevel.innerText = profile.professional_level
     const plocal = document.createElement('p')
@@ -36,16 +37,18 @@ async function renderDashboard() {
     const section = document.querySelector('.container-dashboard')
 
     if (profile.department_uuid == null) {
-        const h3 = document.createElement('h3')
-        h3.innerText = 'Você ainda não foi contratado'
+        const h2 = document.createElement('h2')
+        h2.innerText = 'Você ainda não foi contratado'
 
-        section.appendChild(h3)
+        section.appendChild(h2)
     }
     else {
         const div1 = document.createElement('div')
+        div1.className = 'div-companie-name'
         const h3 = document.createElement('h3')
         h3.innerText = `Company Name - ${arrayDepart[0].name}`
         const div2 = document.createElement('div')
+        div2.className = 'div-coworks'
         const ul = document.createElement('ul')
 
         const arrayCoworkers = arrayDepart[0].users.filter(element => element.email != profile.email)
@@ -53,6 +56,7 @@ async function renderDashboard() {
         arrayCoworkers.forEach(element => {
             const li = document.createElement('li')
             const pName = document.createElement('p')
+            pName.className = 'p-name-profile'
             const strong = document.createElement('strong')
             strong.innerText = element.username
             const pLevel = document.createElement('p')

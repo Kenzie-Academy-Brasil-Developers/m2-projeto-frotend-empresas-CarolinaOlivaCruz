@@ -1,0 +1,29 @@
+.section-modal {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.082);
+}
+
+.container-modal {
+    width: 506px;
+    height: 421px;
+    margin: 10% auto;
+    background-color: var(--gray400);
+}
+
+.div-button{
+    width: 100%;
+}
+
+.div-button button {
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: var(--gray400);
+    border: none;
+    display: flex;
+    flex-direction: row-reverse;
+}
+

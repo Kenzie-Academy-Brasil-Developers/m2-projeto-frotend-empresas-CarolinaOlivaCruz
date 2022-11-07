@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/globalStyles.css">
     <link rel="stylesheet" href="../../styles/header-nav.css">
+    <link rel="stylesheet" href="../../styles/button.css">
     <link rel="stylesheet" href="../../styles/form.css">
     <link rel="stylesheet" href="./index.css">
     <title>Empresas</title>
@@ -14,30 +16,33 @@
 
 <body>
     <header>
-        <section>
+        <section class="container-logo">
             <div class="logo">
                 <img src="../../src/home/logo.svg" alt="Logotipo">
-                <h1>Kenzie Empresas</h1>
+                <img src="../../src/home/Kenzie Empresas.svg" alt="">
             </div>
             <nav>
-                <button type="submit" class="buttonLogin">Login</button>
-                <button type="submit" class="buttonRegister">Cadastro</button>
+                <button class="button-menu"><img src="../../src/home/menu.svg" alt=""></button>
+            </nav>
+            <nav class="buttons-desktop">
+                <button class="buttonLogin">Login</button>
+                <button class="buttonRegister">Cadastrar</button>
             </nav>
         </section>
     </header>
-        <main>
-            <form>
-                <section class="container-form" id="containerLogin">
-                    <h2>Login</h2>
-                    <p>Preencha os campos para realizar login</p>
-                    <input type="email" placeholder="Seu e-mail" id="email">
-                    <input type="password" placeholder="Sua senha" id="password">
-                    <button type="submit" id="loginSubmit">Login</button>
-                    <p>ou</p>
-                    <button class="buttonRegister" type="submit">Cadastre-se</button>
-                </section>
-            </form>
-        </main>
+    <main>
+        <form>
+            <section class="container-form" id="containerLogin">
+                <h2>Login</h2>
+                <p class="p-description">Preencha os campos para realizar login</p>
+                <input type="email" placeholder="Seu e-mail" id="email">
+                <input type="password" placeholder="Sua senha" id="password">
+                <button type="submit" class="button-submit" id="loginSubmit">Login</button>
+                <p class="p-alternative">ou</p>
+                <button class="button-return" id="buttonPagRegister" type="submit">Cadastre-se</button>
+            </section>
+        </form>
+    </main>
 </body>
 <script type="module" src="./index.js"></script>
 

@@ -6,24 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/reset.css">
-    <link rel="stylesheet" href="../../styles/header-nav.css">
+    <link rel="stylesheet" href="../../styles/globalStyles.css">
+    <link rel="stylesheet" href="../../styles/button.css">
     <link rel="stylesheet" href="../../styles/form.css">
+    <link rel="stylesheet" href="../../styles/header-nav.css">
     <link rel="stylesheet" href="./index.css">
     <title>Empresas</title>
 </head>
 
 <body>
     <header>
-        <section>
-            <div class="logo">
-                <img src="../../src/home/logo.svg" alt="Logotipo">
-                <h1>Kenzie Empresas</h1>
-            </div>
-            <nav>
-                <button type="submit" class="buttonLogin">Login</button>
-                <button type="submit" class="buttonRegister">Cadastro</button>
-            </nav>
-        </section>
+            <section class="container-logo">
+                <div class="logo">
+                    <img src="../../src/home/logo.svg" alt="Logotipo">
+                    <h1>Kenzie Empresas</h1>
+                </div>
+                <nav>
+                    <button class="button-menu"><img src="../../src/home/menu.svg" alt=""></button>
+                </nav>
+                <nav class="buttons-desktop">
+                    <button class="buttonLogin">Login</button>
+                    <button class="buttonRegister">Cadastrar</button>
+                </nav>
+            </section>
     </header>
     <main>
         <form>
@@ -39,7 +44,7 @@
                     <option>pleno</option>
                     <option>sênior</option>
                 </select>
-                <button type="submit">Cadastre-se</button>
+                <button type="submit" class="button-submit">Cadastre-se</button>
                 <button class="button-return" type="button">Retornar</button>
             </section>
         </form>

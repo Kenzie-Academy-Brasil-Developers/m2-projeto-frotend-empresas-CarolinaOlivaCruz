@@ -4,16 +4,21 @@ import { patchHire } from "./api.js"
 import { patchRemoveUser } from "./api.js"
 
 export async function viewDepartment(department) {
-
+    const tagUl = document.createElement('ul')
     const users = await getUsers()
 
     const body = document.querySelector('body')
     const section = document.createElement('section')
+    section.className = 'section-modal'
+
+    const div = document.createElement('div')
+    div.className = 'container-modal'
 
     const div1 = document.createElement('div')
+    div1.className = 'div-button'
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
-    buttonClose.addEventListener('click', () => section.innerHTML = '')
+    buttonClose.addEventListener('click', () => window.location.replace('./index.html'))
 
     const h3 = document.createElement('h3')
     h3.innerText = department.name
@@ -36,6 +41,10 @@ export async function viewDepartment(department) {
     optionDescription.disabled = 'true'
     optionDescription.selected = 'true'
 
+    const div3 = document.createElement('div')
+
+    const pNotUsers = document.createElement('p')
+
     const buttonHire = document.createElement('button')
     buttonHire.className = 'buttonHire'
     buttonHire.innerText = 'Contratar'
@@ -46,18 +55,18 @@ export async function viewDepartment(department) {
             user_uuid: select.value,
             department_uuid: department.uuid
         }
-
         await patchHire(data)
+
+        const users1 = await getUsers()
+        const arrayUserDepart1 = users1.filter(user => user.department_uuid == department.uuid)
+        
+        tagUl.innerText = ''
+        div3.appendChild(listUserDepart(department, arrayUserDepart1, tagUl))
     })
 
-    const div3 = document.createElement('div')
-
-    const pNotUsers = document.createElement('p')
-
-    const arrayUserDepart = await users.filter(user => user.department_uuid == department.uuid)
-
+    const arrayUserDepart = users.filter(user => user.department_uuid == department.uuid)
     if (arrayUserDepart.length != 0) {
-        const ul = listUserDepart(department.companies.name, arrayUserDepart)
+        const ul = listUserDepart(department, arrayUserDepart, tagUl)
         div3.appendChild(ul)
     }
     else {
@@ -73,14 +82,15 @@ export async function viewDepartment(department) {
     form.append(select, buttonHire)
     div2.append(divDescription, form)
 
-    section.append(div1, h3, div2, div3, pNotUsers)
+    div.append(div1, h3, div2, div3, pNotUsers)
+    section.append(div)
     body.appendChild(section)
 
 }
 
 
-function listUserDepart(department, arrayUserDepart) {
-    const ul = document.createElement('ul')
+function listUserDepart(department, arrayUserDepart, ul) {
+
     arrayUserDepart.forEach(user => {
 
         const li = document.createElement('li')
@@ -91,16 +101,17 @@ function listUserDepart(department, arrayUserDepart) {
         pLevel.innerHTML = user.professional_level
 
         const pCompanie = document.createElement('p')
-        pCompanie.innerText = department
+        pCompanie.innerText = department.companies.name
 
         const buttonRemove = document.createElement('button')
         buttonRemove.innerText = 'Desligar'
         buttonRemove.id = user.uuid
-        buttonRemove.addEventListener('click', (e) => {
+        buttonRemove.addEventListener('click', async (e) => {
             e.preventDefault()
             if (buttonRemove.id == user.uuid) {
-                patchRemoveUser(user.uuid)
+                await patchRemoveUser(user.uuid)
             }
+           li.remove()
         })
 
         divUser.append(h4, pLevel, pCompanie)

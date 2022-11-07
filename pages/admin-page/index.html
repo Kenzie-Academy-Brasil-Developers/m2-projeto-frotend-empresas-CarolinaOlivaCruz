@@ -5,30 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/globalStyles.css">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/header-nav.css">
+    <link rel="stylesheet" href="../../styles/button.css">
+    <link rel="stylesheet" href="../../styles/modal.css">
+    <link rel="stylesheet" href="./index.css">
     <title>Empresas</title>
 </head>
 
 <body>
     <header>
-        <section>
+        <section class="container-logo">
             <div class="logo">
                 <img src="../../src/home/logo.svg" alt="Logotipo">
-                <h1>Kenzie Empresas</h1>
+                <img src="../../src/home/Kenzie Empresas.svg" alt="">
             </div>
-            <nav>
-                <button type="button" class="button-logout">Logout</button>
+            <nav class="buttons-desktop">
+                <button type="button" class="button-logout buttonLogin">Logout</button>
             </nav>
         </section>
     </header>
     <main>
-        <section>
+        <section class="container-depart">
             <div>
                 <h3>Departamentos</h3>
-
                 <select class="select-companie">
                     <option selected disabled>Selecionar Empresa</option>
                 </select>
-
                 <button class="create-departmente">
                     <img src="../../src/admin-page/icon-create.svg" alt="">
                     <p>Criar</p>
@@ -57,11 +61,11 @@
                 </ul>
             </div>
         </section>
-        <section>
+        <section class="container-users-all">
             <div>
-                <h3>Usuários cadastrados</h3>
+                <h3 class="title-users">Usuários cadastrados</h3>
             </div>
-            <div>
+            <div class="container-list">
                 <ul class="list-users">
                     <!-- <li>
                         <div>

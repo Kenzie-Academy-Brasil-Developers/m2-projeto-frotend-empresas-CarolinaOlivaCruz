@@ -1,15 +1,21 @@
 import { patchDepartment } from "./api.js"
+import { renderDepartment } from "../pages/admin-page/index.js"
+import { getCompanieDepartments } from "./api.js"
 
-
-export async function editDepartment(idDepartmente, description) {
+export async function editDepartment(department) {
     
     const body = document.querySelector('body')
     const section = document.createElement('section')
+    section.className = 'section-modal'
+
+    const div = document.createElement('div')
+    div.className = 'container-modal'
 
     const div1 = document.createElement('div')
+    div1.className = 'div-button'
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
-    buttonClose.addEventListener('click', () => section.innerHTML = '')
+    buttonClose.addEventListener('click', () => window.location.replace('./index.html'))
 
     const div2 = document.createElement('div')
 
@@ -17,7 +23,7 @@ export async function editDepartment(idDepartmente, description) {
     h3.innerText = 'Editar Departamento'
 
     const textarea = document.createElement('textarea')
-    textarea.value = description
+    textarea.value = department.description
 
     const buttonSubmit = document.createElement('button')
     buttonSubmit.type = 'submit'
@@ -27,12 +33,15 @@ export async function editDepartment(idDepartmente, description) {
         let newDescription = {
             description: textarea.value
         }
-        
-        await patchDepartment(idDepartmente, newDescription)
+
+        await patchDepartment(department.uuid, newDescription)
+        const listDepartment = await getCompanieDepartments(department.companies.uuid)
+        renderDepartment(listDepartment)
     })
 
     div1.appendChild(buttonClose)
     div2.append(h3, textarea, buttonSubmit)
-    section.append(div1, div2)
+    div.append(div1, div2)
+    section.append(div)
     body.appendChild(section)
 }

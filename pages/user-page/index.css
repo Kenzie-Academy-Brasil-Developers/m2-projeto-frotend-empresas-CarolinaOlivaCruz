@@ -1,0 +1,108 @@
+body {
+    position: absolute;
+}
+
+main {
+    width: 85%;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-data {
+    width: 1180px;
+    height: 121px;
+    margin: 0 auto;
+    border: 1px solid var(--gray200);
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.container-profile {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-profile h3 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.container-profile p {
+    font-size: 22px;
+}
+
+.data-user {
+    display: flex;
+    gap: 200px;
+}
+
+.open-edit-profile {
+    border: none;
+    background-color: var(--gray400);
+    margin-right: 15px;
+}
+
+.container-dashboard {
+    width: 1180px;
+    height: 467px;
+    margin: 0 auto;
+    background-color: var(--gray350);
+    border: 1px solid var(--gray200);
+}
+
+.container-dashboard h2 {
+    width: 50%;
+    margin: 15% auto;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.div-companie-name {
+    height: 78px;
+    background-color: var(--brand100);
+}
+
+.div-companie-name h3 {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--gray400);
+}
+
+.div-coworks {
+    width: 90%;
+    margin: 50px auto;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.div-coworks ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.div-coworks ul li {
+    width: 318px;
+    height: 76px;
+    background-color: var(--gray400);
+    border: 1px solid var(--brand100);
+}
+
+.div-coworks ul li p {
+    margin: 15px;
+}
+
+.p-name-profile {
+    font-weight: bold;
+}

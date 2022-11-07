@@ -1,8 +1,8 @@
-import { buttonLogin } from "../../js/button.js"
-import { buttonRegister } from "../../js/button.js"
+import { buttonLoginDesk } from "../../js/button.js"
+import { buttonRegisterDesk } from "../../js/button.js"
 import { buttonReturn } from "../../js/button.js"
 import { postRegister } from "../../js/api.js"
-
+import { navButton } from "../../js/button.js"
 
 function register() {
     const formRegister = document.querySelector('#containerRegister')
@@ -30,6 +30,7 @@ function register() {
 
 
 register()
-buttonLogin('../../pages/login/index.html')
-buttonRegister('../../pages/register/index.html')
+buttonLoginDesk('../../pages/login/index.html')
+buttonRegisterDesk('../../pages/register/index.html')
+navButton('../../pages/register/index.html', '../../pages/login/index.html', '../../pages/register/index.html')
 buttonReturn('../../index.html')

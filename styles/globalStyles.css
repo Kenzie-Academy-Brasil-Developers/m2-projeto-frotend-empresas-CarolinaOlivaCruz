@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&display=swap');
+
+body {
+  font-family:'Inter', sans-serif;
+}
+
+:root {
+    --brand100: #4200FF;
+    --brand200: #2f00b13a;
+    --gray100: #000000;
+    --gray200: rgb(206, 206, 206);
+    --gray250: rgb(139, 139, 139);
+    --gray300:  rgb(255, 255, 255);
+    --gray350: #F8F8F8;
+    --gray400: #ffff;
+    --gray500: #000000;
+    --alert100: #CE4646;
+    --sucess100: ##4BA036;
+    --border-radius: 4px;
+    
+  }

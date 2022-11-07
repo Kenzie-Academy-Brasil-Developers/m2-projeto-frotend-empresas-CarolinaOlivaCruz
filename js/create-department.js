@@ -1,10 +1,11 @@
 
 import { getCompanies } from "./api.js"
 import { postDepartments } from "./api.js"
+import { listDepartment } from "../pages/admin-page/index.js"
 
 export function buttonCreate() {
     const button = document.querySelector('.create-departmente')
-    button.addEventListener('click', (e) => {
+    button.addEventListener('click', async (e) => {
         e.preventDefault()
         createDepartment()
     })
@@ -15,13 +16,19 @@ async function createDepartment() {
 
     const body = document.querySelector('body')
     const section = document.createElement('section')
+    section.className = 'section-modal'
+
+    const div = document.createElement('div')
+    div.className = 'container-modal'
 
     const div1 = document.createElement('div')
+    div1.className = 'div-button'
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
-    buttonClose.addEventListener('click', () => section.innerHTML = '')
+    buttonClose.addEventListener('click', () => window.location.replace('./index.html'))
 
     const div2 = document.createElement('div')
+    div2.className = 'container-edit-profile'
 
     const input1 = document.createElement('input')
     input1.placeholder = 'Nome do departamento'
@@ -44,13 +51,13 @@ async function createDepartment() {
             description: input2.value,
             company_uuid: select.value
         }
-
-       await postDepartments(newDepartment)
+        await postDepartments(newDepartment)
     })
 
-
+    div1.appendChild(buttonClose)
     div2.append(input1, input2, select, buttonCreate)
-    section.append(div1, div2)
+    div.append(div1, div2)
+    section.append(div)
     body.appendChild(section)
 }
 

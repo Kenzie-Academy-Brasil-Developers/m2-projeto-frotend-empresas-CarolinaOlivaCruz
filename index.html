@@ -5,41 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/header-nav.css">
-    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/globalStyles.css">
     <link rel="stylesheet" href="./pages/home/index.css">
+    <link rel="stylesheet" href="./styles/header-nav.css">
+    <link rel="stylesheet" href="./styles/button.css">
+    <link rel="stylesheet" href="./styles/reset.css">
     <title>Empresas</title>
 </head>
 
 <body>
     <header>
-        <section>
+        <section class="container-logo">
             <div class="logo">
                 <img src="./src/home/logo.svg" alt="Logotipo">
-                <h1>Kenzie Empresas</h1>
+                <img src="./src/home/Kenzie Empresas.svg" alt="">
             </div>
             <nav>
-                <button type="submit" class="buttonLogin">Login</button>
-                <button type="submit" class="buttonRegister">Cadastro</button>
+                <button class="button-menu"><img src="./src/home/menu.svg" alt=""></button>
+            </nav>
+            <nav class="buttons-desktop">
+                <button class="buttonLogin">Login</button>
+                <button class="buttonRegister">Cadastrar</button>
             </nav>
         </section>
     </header>
     <main>
-        <section>
+        <section class="container-img">
             <img src="./src/home/img-home.svg" alt="Empresários">
         </section>
-        <section>
+        <section class="container-main-select">
             <div class="title-home">
-                <div class="select-title">
-                    <h2 class="home-select">Selencionar Setor</h2>
-                    <img src="./src/home/seta.svg" alt="">
-                </div>
                 <div class="container-sectors">
-                    <ul class="list-sectors">
-                        <li>
-                           <button class="buttonAll">Todos</button>
-                        </li>
-                    </ul>
+                    <select class="list-sectors">
+                        <option disabled selected>Selecionar Setor</option>
+                    </select>
                 </div>
             </div>
             <div class="container-list">

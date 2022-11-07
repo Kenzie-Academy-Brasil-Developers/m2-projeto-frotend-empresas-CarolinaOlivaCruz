@@ -1,0 +1,128 @@
+body {
+    position: absolute;
+}
+
+main {
+    width: 85%;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-depart {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.container-depart div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-depart div h3 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.container-depart div select {
+    width: 282px;
+    height: 32px;
+    padding: 5px;
+    border-radius: 16px;
+}
+
+.container-depart div button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 20px;
+    border: none;
+    color: var(--gray400);
+    background-color: var(--brand100);
+}
+
+.list-department {
+    display: flex;
+}
+
+.container-users-all {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.container-users-all div {
+    margin: 50px auto;
+}
+
+.title-users {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-list {
+    width: 1180px;
+    height: 467px;
+    margin: 10px auto;
+    background-color: var(--gray350);
+    border: 1px solid var(--gray200);
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.list-department {
+    padding: 30px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.list-department li {
+    width: 489px;
+    height: 196px;
+    background-color: var(--gray400);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.list-department li button {
+    background-color: var(--gray400);
+}
+
+.div-data-depart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-left: 30px;
+    gap: 10px;
+}
+
+.div-data-depart h4 {
+    font-weight: bold;
+}
+
+.list-users {
+    padding: 30px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.list-users li {
+    width: 489px;
+    height: 196px;
+    background-color: var(--gray400);
+}
+
+.list-users li button {
+    background-color: var(--gray400);
+}

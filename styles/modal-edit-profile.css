@@ -1,0 +1,28 @@
+.container-edit-profile {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-edit-profile h3 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.container-edit-profile input {
+    padding: 15px;
+    font-size: 18px;
+    color: var(--gray250);
+    border: 1px solid var(--gray250);
+}
+
+.container-edit-profile button {
+    height: 52px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--gray400);
+    background-color: var(--brand100);
+    border: none;
+}

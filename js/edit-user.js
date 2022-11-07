@@ -1,5 +1,5 @@
 import { patchUser } from "./api.js"
-
+import { renderUsers } from "../pages/admin-page/index.js"
 
 export function editUser(idUser) {
 
@@ -71,6 +71,7 @@ export function editUser(idUser) {
         }
        
         await patchUser(newData, idUser)
+        renderUsers()
     })
 
     div1.appendChild(buttonClose)

@@ -1,7 +1,9 @@
-import { buttonLogin } from "../../js/button.js"
-import { buttonRegister } from "../../js/button.js"
 import { postLogin } from "../../js/api.js"
-
+import { getTypeUser } from "../../js/api.js"
+import { navButton } from "../../js/button.js"
+import { buttonRegister } from "../../js/button.js"
+import { buttonLoginDesk } from "../../js/button.js"
+import { buttonRegisterDesk } from "../../js/button.js"
 
 function login() {
 
@@ -22,12 +24,20 @@ function login() {
 
       const returnApi = await postLogin(data)
       if (returnApi != undefined) {
+      
         console.log('Inválido');
       }
       else {
         inputEmail.value = ''
         inputPassaword.value = ''
-        window.location.assign('../../pages/user-page/index.html')
+        const typeUser = await getTypeUser()
+        if (typeUser.is_admin == false) {
+          window.location.replace('../../pages/user-page/index.html')
+        }
+        else if(typeUser.is_admin == true){
+          window.location.replace('../../pages/admin-page/')
+        }
+
       }
     }
   })
@@ -37,5 +47,7 @@ function login() {
 
 
 login()
-buttonLogin('../../pages/login/index.html')
-buttonRegister('../../pages/register/index.html')
+buttonRegister()
+buttonLoginDesk('../../pages/login/index.html')
+buttonRegisterDesk('../../pages/register/index.html')
+navButton('./index.html', '../../pages/login/index.html', '../../pages/register/index.html')
