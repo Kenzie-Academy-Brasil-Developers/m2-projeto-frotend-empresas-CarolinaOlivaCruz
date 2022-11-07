@@ -23,6 +23,7 @@ export function editUser(idUser) {
 
     const h3 = document.createElement('h3')
     h3.innerText = 'Editar Usuário'
+    h3.className = 'modal-name'
 
     const select1 = document.createElement('select')
     select1.required = 'true'
@@ -85,7 +86,7 @@ export function editUser(idUser) {
     div1.appendChild(buttonClose)
     select1.append(option1Work, option2Work, option3Work, option4Work)
     select2.append(option1, option2, option3, option4, option5)
-    div2.append(select1, select2)
+    div2.append(h3, select1, select2)
     div.append(div1, div2, buttonEdit)
     section.append(div)
     body.appendChild(section)

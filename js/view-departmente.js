@@ -25,6 +25,7 @@ export async function viewDepartment(department) {
 
     const h3 = document.createElement('h3')
     h3.innerText = department.name
+    h3.className = 'modal.name'
 
     const div2 = document.createElement('div')
 
@@ -83,9 +84,9 @@ export async function viewDepartment(department) {
 
     select.appendChild(optionDescription)
     form.append(select, buttonHire)
-    div2.append(divDescription, form)
+    div2.append(h3, divDescription, form)
 
-    div.append(div1, h3, div2, div3, pNotUsers)
+    div.append(div1, div2, div3, pNotUsers)
     section.append(div)
     body.appendChild(section)
 

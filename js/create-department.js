@@ -33,6 +33,10 @@ async function createDepartment() {
     const div2 = document.createElement('div')
     div2.className = 'container-edit-profile'
 
+    const h3 = document.createElement('h3')
+    h3.innerText = 'Criar Departamento'
+    h3.className = 'modal-name'
+
     const input1 = document.createElement('input')
     input1.placeholder = 'Nome do departamento'
     input1.required = 'true'
@@ -58,7 +62,7 @@ async function createDepartment() {
     })
 
     div1.appendChild(buttonClose)
-    div2.append(input1, input2, select, buttonCreate)
+    div2.append(h3, input1, input2, select, buttonCreate)
     div.append(div1, div2)
     section.append(div)
     body.appendChild(section)

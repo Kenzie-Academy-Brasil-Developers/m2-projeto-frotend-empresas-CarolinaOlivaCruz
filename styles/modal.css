@@ -31,3 +31,9 @@
     flex-direction: row-reverse;
 }
 
+
+.modal-name {
+    color: var(--gray100);
+    font-weight: bold;
+    font-size: 36px;
+}

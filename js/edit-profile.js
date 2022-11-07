@@ -29,6 +29,7 @@ async function editProfile() {
 
     const h3 = document.createElement('h3')
     h3.innerText = 'Editar Perfil'
+    h3.className = 'modal-name'
 
     const inputName = document.createElement('input')
     inputName.type = 'text'

@@ -24,6 +24,7 @@ export async function editDepartment(department) {
 
     const h3 = document.createElement('h3')
     h3.innerText = 'Editar Departamento'
+    h3.className = 'modal-name'
 
     const textarea = document.createElement('textarea')
     textarea.value = department.description
