@@ -81,6 +81,10 @@ export function editUser(idUser) {
        
         await patchUser(newData, idUser)
         renderUsers()
+
+        section.className = 'close'
+        section.innerHTML = ''
+        window.location.replace('index.html')
     })
 
     div1.appendChild(buttonClose)

@@ -59,6 +59,9 @@ async function createDepartment() {
             company_uuid: select.value
         }
         await postDepartments(newDepartment)
+
+        section.className = 'close'
+        section.innerHTML = ''
     })
 
     div1.appendChild(buttonClose)

@@ -17,7 +17,7 @@ export function deleteConfirm(question, id, imgAlt) {
   buttonClose.addEventListener('click', () => {
     section.className = 'close'
     section.innerHTML = ''
-})
+  })
 
   const div2 = document.createElement('div')
 
@@ -30,12 +30,17 @@ export function deleteConfirm(question, id, imgAlt) {
     e.preventDefault()
     if (imgAlt == 'lixeira departamento') {
       await deleteDepartment(id)
+      section.className = 'close'
+      section.innerHTML = ''
+      window.location.replace('index.html')
     }
     else if (imgAlt == 'lixeira funcionário') {
       await deleteUser(id)
-     
+      section.className = 'close'
+      section.innerHTML = ''
+      window.location.replace('index.html')
     }
-    
+
   })
 
   div1.appendChild(buttonClose)

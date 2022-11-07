@@ -41,6 +41,9 @@ export async function editDepartment(department) {
         await patchDepartment(department.uuid, newDescription)
         const listDepartment = await getCompanieDepartments(department.companies.uuid)
         renderDepartment(listDepartment)
+
+        section.className = 'close'
+        section.innerHTML = ''
     })
 
     div1.appendChild(buttonClose)

@@ -115,7 +115,10 @@ function listUserDepart(department, arrayUserDepart, ul) {
             if (buttonRemove.id == user.uuid) {
                 await patchRemoveUser(user.uuid)
             }
+
            li.remove()
+
+           
         })
 
         divUser.append(h4, pLevel, pCompanie)
